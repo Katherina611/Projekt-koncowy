@@ -13601,22 +13601,48 @@ document.addEventListener('DOMContentLoaded', function () {
         _inherits(Home, _React$Component);
 
         function Home() {
+            var _ref;
+
+            var _temp, _this, _ret;
+
             _classCallCheck(this, Home);
 
-            return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Home.__proto__ || Object.getPrototypeOf(Home)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+                text: _react2.default.createElement('h1', { className: 'loader' })
+            }, _temp), _possibleConstructorReturn(_this, _ret);
         }
 
         _createClass(Home, [{
+            key: 'componentDidMount',
+            value: function componentDidMount() {
+                var _this2 = this;
+
+                this.timeout = setTimeout(function () {
+                    _this2.setState({
+                        text: _react2.default.createElement(
+                            'h1',
+                            { className: 'home' },
+                            'DESIGN YOUR HOME'
+                        )
+                    });
+                }, 2000);
+            }
+        }, {
+            key: 'componentWillUnmount',
+            value: function componentWillUnmount() {
+                clearTimeout(this.timeout);
+            }
+        }, {
             key: 'render',
             value: function render() {
                 return _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(
-                        'h1',
-                        { className: 'home' },
-                        'DESIGN YOUR HOME'
-                    )
+                    this.state.text
                 );
             }
         }]);
@@ -13628,14 +13654,38 @@ document.addEventListener('DOMContentLoaded', function () {
         _inherits(AboutUsHeader, _React$Component2);
 
         function AboutUsHeader() {
+            var _ref2;
+
+            var _temp2, _this3, _ret2;
+
             _classCallCheck(this, AboutUsHeader);
 
-            return _possibleConstructorReturn(this, (AboutUsHeader.__proto__ || Object.getPrototypeOf(AboutUsHeader)).apply(this, arguments));
+            for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                args[_key2] = arguments[_key2];
+            }
+
+            return _ret2 = (_temp2 = (_this3 = _possibleConstructorReturn(this, (_ref2 = AboutUsHeader.__proto__ || Object.getPrototypeOf(AboutUsHeader)).call.apply(_ref2, [this].concat(args))), _this3), _this3.state = {
+                width: '500px'
+            }, _this3.handleMouseEnter = function () {
+                _this3.setState({
+                    width: "550px",
+                    height: '350px'
+                });
+            }, _this3.handleMouseLeave = function () {
+                _this3.setState({
+                    width: "500px",
+                    height: '300px'
+                });
+            }, _temp2), _possibleConstructorReturn(_this3, _ret2);
         }
 
         _createClass(AboutUsHeader, [{
             key: 'render',
             value: function render() {
+                var style = {
+                    width: this.state.width,
+                    height: this.state.height
+                };
                 return _react2.default.createElement(
                     'div',
                     null,
@@ -13653,13 +13703,13 @@ document.addEventListener('DOMContentLoaded', function () {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'paragraph2' },
-                                'Przedstawiamy zadady, dzi\u0119ki kt\xF3rym Ty sam mo\u017Cesz spr\xF3bowa\u0107 zaprojektowa\u0107 sw\xF3j w\u0142asny dom energooszcz\u0119dny.Pozwalamy rozr\xF3\u017Cni\u0107 czym jest dom pasywny a energooszcz\u0119dny.'
+                                'Przedstawiamy zasady, dzi\u0119ki kt\xF3rym Ty sam mo\u017Cesz spr\xF3bowa\u0107 zaprojektowa\u0107 sw\xF3j w\u0142asny dom energooszcz\u0119dny. Pozwalamy rozr\xF3\u017Cni\u0107 czym jest dom pasywny a energooszcz\u0119dny.'
                             )
                         ),
                         _react2.default.createElement(
                             'div',
                             { className: 'box col-6' },
-                            _react2.default.createElement('img', { className: 'imgAbout', src: 'https://perfectagent.com.au/wp-content/uploads/2017/10/two-storey-luxury-house-in-Australia-700x525.jpg' })
+                            _react2.default.createElement('img', { className: 'imgAbout', onMouseLeave: this.handleMouseLeave, onMouseEnter: this.handleMouseEnter, style: style, title: 'Dom energooszcz\u0119dny', src: 'https://perfectagent.com.au/wp-content/uploads/2017/10/two-storey-luxury-house-in-Australia-700x525.jpg' })
                         )
                     )
                 );
@@ -13673,14 +13723,39 @@ document.addEventListener('DOMContentLoaded', function () {
         _inherits(AboutUsSection, _React$Component3);
 
         function AboutUsSection() {
+            var _ref3;
+
+            var _temp3, _this4, _ret3;
+
             _classCallCheck(this, AboutUsSection);
 
-            return _possibleConstructorReturn(this, (AboutUsSection.__proto__ || Object.getPrototypeOf(AboutUsSection)).apply(this, arguments));
+            for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+                args[_key3] = arguments[_key3];
+            }
+
+            return _ret3 = (_temp3 = (_this4 = _possibleConstructorReturn(this, (_ref3 = AboutUsSection.__proto__ || Object.getPrototypeOf(AboutUsSection)).call.apply(_ref3, [this].concat(args))), _this4), _this4.state = {
+                width: '500px',
+                height: '300px'
+            }, _this4.handleMouseEnter = function () {
+                _this4.setState({
+                    width: "550px",
+                    height: '350px'
+                });
+            }, _this4.handleMouseLeave = function () {
+                _this4.setState({
+                    width: "500px",
+                    height: '300px'
+                });
+            }, _temp3), _possibleConstructorReturn(_this4, _ret3);
         }
 
         _createClass(AboutUsSection, [{
             key: 'render',
             value: function render() {
+                var style = {
+                    width: this.state.width,
+                    height: this.state.height
+                };
                 return _react2.default.createElement(
                     'div',
                     { className: 'row' },
@@ -13703,14 +13778,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             ' s\u0105 to budynki, kt\xF3rych roczne zapotrzebowanie na ciep\u0142o jest ni\u017Csze od 70 kWh/(m2\xB7rok). Poni\u017Cej przedstawiono straty ciep\u0142a przez przegrody zewn\u0119tzne (dach, \u015Bciany, stropy, stolarka drzwiowa i okienna). Dlatego wa\u017Cnym elementem jest zapewnienie im odpowiedniego stopnia izolacyjno\u015Bci'
                         )
                     ),
-                    _react2.default.createElement('img', { className: 'col-5 imgAbout1', src: 'https://www.archon.pl/uploads/article/0/416/95/straty_ciepla.jpg' }),
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'col-6 paragraph2' },
-                        'Zasady budowy dom\xF3w energooszcz\u0119dnych:',
-                        _react2.default.createElement('hr', null),
-                        'Bry\u0142a domu powinna by\u0107 prosta, a \u015Bciany i dach \u2013 mie\u0107 jak najmniej za\u0142ama\u0144. Najwi\u0119ksze przeszklenia umieszcza si\u0119 od strony po\u0142udniowej.\u015Aredni wsp\xF3\u0142czynnik przenikania ciep\u0142a U przegr\xF3d zewn\u0119trznych nie przekracza 0,2 W/(m2\xB7K). Osi\u0105gni\u0119cie takich parametr\xF3w jest mo\u017Cliwe dzi\u0119ki zastosowaniu w \u015Bcianach warstwy termoizolacji grubo\u015Bci min. 20 cm, a w dachu lub stropodachu \u2013 30 cm. \u0179r\xF3d\u0142em ciep\u0142a s\u0105 nowoczesne urz\u0105dzenia o wysokiej sprawno\u015Bci (kocio\u0142 kondensacyjny, pompa ciep\u0142a). Grzejniki powinny mie\u0107 jak najmniejsz\u0105 pojemno\u015B\u0107 wodn\u0105, a rury by\u0107 dobrze zaizolowane. Do ogrzewania wykorzystuje si\u0119 r\xF3wnie\u017C darmow\u0105 energi\u0119 s\u0142oneczn\u0105.'
-                    )
+                    _react2.default.createElement('img', { className: 'col-5 imgAbout1', onMouseLeave: this.handleMouseLeave, onMouseEnter: this.handleMouseEnter, style: style, title: 'Straty ciep\u0142a przez przegrody zewn\u0119trzne', src: 'https://www.archon.pl/uploads/article/0/416/95/straty_ciepla.jpg' })
                 );
             }
         }]);
@@ -13718,8 +13786,82 @@ document.addEventListener('DOMContentLoaded', function () {
         return AboutUsSection;
     }(_react2.default.Component);
 
-    var AboutUs = function (_React$Component4) {
-        _inherits(AboutUs, _React$Component4);
+    var AboutUsPassive = function (_React$Component4) {
+        _inherits(AboutUsPassive, _React$Component4);
+
+        function AboutUsPassive() {
+            _classCallCheck(this, AboutUsPassive);
+
+            return _possibleConstructorReturn(this, (AboutUsPassive.__proto__ || Object.getPrototypeOf(AboutUsPassive)).apply(this, arguments));
+        }
+
+        _createClass(AboutUsPassive, [{
+            key: 'render',
+            value: function render() {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'col-6 paragraph1' },
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Czym s\u0105 domy pasywne?'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'definition' },
+                            _react2.default.createElement(
+                                'strong',
+                                null,
+                                'Dom pasywny'
+                            ),
+                            ' to standard wznoszenia obiekt\xF3w budowlanych, kt\xF3ry wyr\xF3\u017Cniaj\u0105 bardzo dobre parametry izolacyjne przegr\xF3d zewn\u0119trznych oraz zastosowanie szeregu rozwi\u0105za\u0144, maj\u0105cych na celu zminimalizowanie zu\u017Cycia energii w trakcie eksploatacji.To budynek, w kt\xF3rym zapotrzebowanie na ciep\u0142o jest tak niskie, \u017Ce mo\u017Cna zrezygnowa\u0107 z osobnego systemu grzewczego bez utraty komfortu. Dzi\u0119ki skutecznemu korzystaniu z energii elektrycznej ca\u0142kowite zapotrzebowanie na energi\u0119 wynosi poni\u017Cej 33 kWh/(m2/rok).'
+                        )
+                    )
+                );
+            }
+        }]);
+
+        return AboutUsPassive;
+    }(_react2.default.Component);
+
+    var AboutUsBuild = function (_React$Component5) {
+        _inherits(AboutUsBuild, _React$Component5);
+
+        function AboutUsBuild() {
+            _classCallCheck(this, AboutUsBuild);
+
+            return _possibleConstructorReturn(this, (AboutUsBuild.__proto__ || Object.getPrototypeOf(AboutUsBuild)).apply(this, arguments));
+        }
+
+        _createClass(AboutUsBuild, [{
+            key: 'render',
+            value: function render() {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'col-6 paragraph2' },
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Zasady budowy dom\xF3w energooszcz\u0119dnych i pasywnych:'
+                        ),
+                        _react2.default.createElement('hr', null),
+                        'Bry\u0142a domu powinna by\u0107 prosta, a \u015Bciany i dach \u2013 mie\u0107 jak najmniej za\u0142ama\u0144. Najwi\u0119ksze przeszklenia umieszcza si\u0119 od strony po\u0142udniowej.\u015Aredni wsp\xF3\u0142czynnik przenikania ciep\u0142a U przegr\xF3d zewn\u0119trznych nie przekracza 0,2 W/(m2\xB7K). Osi\u0105gni\u0119cie takich parametr\xF3w jest mo\u017Cliwe dzi\u0119ki zastosowaniu w \u015Bcianach warstwy termoizolacji grubo\u015Bci min. 20 cm, a w dachu lub stropodachu \u2013 30 cm. \u0179r\xF3d\u0142em ciep\u0142a s\u0105 nowoczesne urz\u0105dzenia o wysokiej sprawno\u015Bci (kocio\u0142 kondensacyjny, pompa ciep\u0142a). Grzejniki powinny mie\u0107 jak najmniejsz\u0105 pojemno\u015B\u0107 wodn\u0105, a rury by\u0107 dobrze zaizolowane. Do ogrzewania wykorzystuje si\u0119 r\xF3wnie\u017C darmow\u0105 energi\u0119 s\u0142oneczn\u0105.'
+                    )
+                );
+            }
+        }]);
+
+        return AboutUsBuild;
+    }(_react2.default.Component);
+
+    var AboutUs = function (_React$Component6) {
+        _inherits(AboutUs, _React$Component6);
 
         function AboutUs() {
             _classCallCheck(this, AboutUs);
@@ -13734,7 +13876,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     'div',
                     null,
                     _react2.default.createElement(AboutUsHeader, null),
-                    _react2.default.createElement(AboutUsSection, null)
+                    _react2.default.createElement(AboutUsSection, null),
+                    _react2.default.createElement(AboutUsPassive, null),
+                    _react2.default.createElement(AboutUsBuild, null)
                 );
             }
         }]);
@@ -13742,31 +13886,31 @@ document.addEventListener('DOMContentLoaded', function () {
         return AboutUs;
     }(_react2.default.Component);
 
-    var Galery = function (_React$Component5) {
-        _inherits(Galery, _React$Component5);
+    var Galery = function (_React$Component7) {
+        _inherits(Galery, _React$Component7);
 
         function Galery() {
-            var _ref;
+            var _ref4;
 
-            var _temp, _this5, _ret;
+            var _temp4, _this8, _ret4;
 
             _classCallCheck(this, Galery);
 
-            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-                args[_key] = arguments[_key];
+            for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+                args[_key4] = arguments[_key4];
             }
 
-            return _ret = (_temp = (_this5 = _possibleConstructorReturn(this, (_ref = Galery.__proto__ || Object.getPrototypeOf(Galery)).call.apply(_ref, [this].concat(args))), _this5), _this5.state = {
+            return _ret4 = (_temp4 = (_this8 = _possibleConstructorReturn(this, (_ref4 = Galery.__proto__ || Object.getPrototypeOf(Galery)).call.apply(_ref4, [this].concat(args))), _this8), _this8.state = {
                 src: null
-            }, _this5.handleClick = function (e) {
-                _this5.setState({
+            }, _this8.handleClick = function (e) {
+                _this8.setState({
                     src: e.target.src
                 });
-            }, _this5.handleDelete = function (e) {
-                _this5.setState({
+            }, _this8.handleDelete = function (e) {
+                _this8.setState({
                     src: null
                 });
-            }, _temp), _possibleConstructorReturn(_this5, _ret);
+            }, _temp4), _possibleConstructorReturn(_this8, _ret4);
         }
 
         _createClass(Galery, [{
@@ -13800,32 +13944,32 @@ document.addEventListener('DOMContentLoaded', function () {
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: './../images/g1.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: 'images/g1.jpg' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: './../images/g2.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/g2.jpg' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: './../images/g3.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/g3.jpg' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: './../images/g4.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/g4.jpg' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: './../images/dom.png' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/dom.png' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: './../images/g6.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/g6.jpg' })
                             )
                         )
                     )
@@ -13836,8 +13980,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return Galery;
     }(_react2.default.Component);
 
-    var Design = function (_React$Component6) {
-        _inherits(Design, _React$Component6);
+    var Design = function (_React$Component8) {
+        _inherits(Design, _React$Component8);
 
         function Design() {
             _classCallCheck(this, Design);
@@ -13855,8 +13999,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return Design;
     }(_react2.default.Component);
 
-    var CalculatorMain = function (_React$Component7) {
-        _inherits(CalculatorMain, _React$Component7);
+    var CalculatorMain = function (_React$Component9) {
+        _inherits(CalculatorMain, _React$Component9);
 
         function CalculatorMain() {
             _classCallCheck(this, CalculatorMain);
@@ -13873,7 +14017,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     _react2.default.createElement(
                         'li',
                         null,
-                        _react2.default.createElement(CalculatorIsolation, null)
+                        _react2.default.createElement(CalculatorIsolationWall, null)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(CalculatorIsolationRoof, null)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(CalculatorIsolationFloor, null)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(CalculatorBlock, null)
                     ),
                     _react2.default.createElement(
                         'li',
@@ -13902,64 +14061,84 @@ document.addEventListener('DOMContentLoaded', function () {
         return CalculatorMain;
     }(_react2.default.Component);
 
-    var CalculatorIsolation = function (_React$Component8) {
-        _inherits(CalculatorIsolation, _React$Component8);
+    var CalculatorIsolationWall = function (_React$Component10) {
+        _inherits(CalculatorIsolationWall, _React$Component10);
 
-        function CalculatorIsolation() {
-            var _ref2;
+        function CalculatorIsolationWall() {
+            var _ref5;
 
-            var _temp2, _this8, _ret2;
+            var _temp5, _this11, _ret5;
 
-            _classCallCheck(this, CalculatorIsolation);
+            _classCallCheck(this, CalculatorIsolationWall);
 
-            for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-                args[_key2] = arguments[_key2];
+            for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+                args[_key5] = arguments[_key5];
             }
 
-            return _ret2 = (_temp2 = (_this8 = _possibleConstructorReturn(this, (_ref2 = CalculatorIsolation.__proto__ || Object.getPrototypeOf(CalculatorIsolation)).call.apply(_ref2, [this].concat(args))), _this8), _this8.state = {
+            return _ret5 = (_temp5 = (_this11 = _possibleConstructorReturn(this, (_ref5 = CalculatorIsolationWall.__proto__ || Object.getPrototypeOf(CalculatorIsolationWall)).call.apply(_ref5, [this].concat(args))), _this11), _this11.state = {
                 input1: '',
                 input2: '',
                 input3: '',
                 input4: '',
                 displayHead: 'block',
                 displayCalc: 'none'
-            }, _this8.handleInput1 = function (e) {
-                _this8.setState({
+
+            }, _this11.handleInput1 = function (e) {
+                _this11.setState({
                     input1: e.target.value
                 });
-            }, _this8.handleInput2 = function (e) {
-                _this8.setState({
+            }, _this11.handleInput2 = function (e) {
+                _this11.setState({
                     input2: e.target.value
                 });
-            }, _this8.handleInput3 = function (e) {
-                _this8.setState({
+            }, _this11.handleInput3 = function (e) {
+                _this11.setState({
                     input3: e.target.value
                 });
-            }, _this8.handleInput4 = function (e) {
-                _this8.setState({
+            }, _this11.handleInput4 = function (e) {
+                _this11.setState({
                     input4: e.target.value
                 });
-            }, _this8.handleClickHeader = function () {
-                _this8.setState({
+            }, _this11.handleClickHeader = function () {
+                _this11.setState({
                     displayHead: 'block',
-                    displayCalc: _this8.state.displayCalc === 'block' ? 'none' : 'block'
+                    displayCalc: _this11.state.displayCalc === 'block' ? 'none' : 'block'
                 });
-            }, _temp2), _possibleConstructorReturn(_this8, _ret2);
+            }, _temp5), _possibleConstructorReturn(_this11, _ret5);
         }
 
-        _createClass(CalculatorIsolation, [{
+        _createClass(CalculatorIsolationWall, [{
             key: 'render',
             value: function render() {
                 var result = void 0;
                 result = 1 / 0.3 - (0.04 + 0.13 + parseInt(this.state.input1) + parseInt(this.state.input2) + parseInt(this.state.input3) + parseInt(this.state.input4));
                 var welna = (result * this.state.input2).toFixed(3);
+                var span = void 0;
+
+                if (this.state.input1 && this.state.input2 && this.state.input3 && this.state.input4 !== '') {
+                    span = _react2.default.createElement(
+                        'span',
+                        null,
+                        'Grubo\u015B\u0107 warstwy izolacyjnej wynosi: ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            welna,
+                            ' m'
+                        ),
+                        '. Znajd\u017A katalog producent\xF3w warstwy izolacyjnej i dobierz odpowiedni\u0105 grubo\u015B\u0107 katalogow\u0105.'
+                    );
+                } else {
+                    span = '';
+                }
+
                 return _react2.default.createElement(
                     'div',
                     null,
                     _react2.default.createElement(
                         'h3',
                         { style: { display: this.state.displayHead }, onClick: this.handleClickHeader },
-                        'Kalkulator grubo\u015Bci izolacji'
+                        'Kalkulator grubo\u015Bci warstwy izolacyjnej \u015Bcian zewn\u0119trznych'
                     ),
                     _react2.default.createElement(
                         'div',
@@ -13967,74 +14146,411 @@ document.addEventListener('DOMContentLoaded', function () {
                         _react2.default.createElement(
                             'label',
                             null,
-                            'Podaj op\xF3r cieplny tynku silikatowego:',
+                            'Podaj op\xF3r cieplny tynku zewn\u0119trznego:',
                             _react2.default.createElement('input', { type: 'text', value: this.state.input1, onChange: this.handleInput1 })
                         ),
-                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'label',
                             null,
                             'Podaj wsp\xF3\u0142czynnik przewodzenia ciep\u0142a warstwy izolacyjnej:',
                             _react2.default.createElement('input', { type: 'text', value: this.state.input2, onChange: this.handleInput2 })
                         ),
-                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'label',
                             null,
                             'Podaj op\xF3r cieplny muru z betonu kom\xF3rkowego:',
                             _react2.default.createElement('input', { type: 'text', value: this.state.input3, onChange: this.handleInput3 })
                         ),
-                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'label',
                             null,
-                            'Podaj op\xF3r cieplny tynku gipsowego:',
+                            'Podaj op\xF3r cieplny tynku wewn\u0119trznego:',
                             _react2.default.createElement('input', { type: 'text', value: this.state.input4, onChange: this.handleInput4 })
                         ),
-                        _react2.default.createElement('br', null),
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            'Grubo\u015B\u0107 warstwy izolacyjnej wynosi: ',
-                            welna,
-                            ' m. Znajd\u017A katalog producent\xF3w warstwy izolacyjnej i dobierz odpowiedni\u0105 grubo\u015B\u0107 katalogow\u0105.'
-                        )
+                        span
                     )
                 );
             }
         }]);
 
-        return CalculatorIsolation;
+        return CalculatorIsolationWall;
     }(_react2.default.Component);
 
-    var CalculatorPipe = function (_React$Component9) {
-        _inherits(CalculatorPipe, _React$Component9);
+    var CalculatorIsolationRoof = function (_React$Component11) {
+        _inherits(CalculatorIsolationRoof, _React$Component11);
+
+        function CalculatorIsolationRoof() {
+            var _ref6;
+
+            var _temp6, _this12, _ret6;
+
+            _classCallCheck(this, CalculatorIsolationRoof);
+
+            for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+                args[_key6] = arguments[_key6];
+            }
+
+            return _ret6 = (_temp6 = (_this12 = _possibleConstructorReturn(this, (_ref6 = CalculatorIsolationRoof.__proto__ || Object.getPrototypeOf(CalculatorIsolationRoof)).call.apply(_ref6, [this].concat(args))), _this12), _this12.state = {
+                input1: '',
+                input2: '',
+                input3: '',
+                input4: '',
+                displayHead: 'block',
+                displayCalc: 'none'
+            }, _this12.handleInput1 = function (e) {
+                _this12.setState({
+                    input1: e.target.value
+                });
+            }, _this12.handleInput2 = function (e) {
+                _this12.setState({
+                    input2: e.target.value
+                });
+            }, _this12.handleInput3 = function (e) {
+                _this12.setState({
+                    input3: e.target.value
+                });
+            }, _this12.handleInput4 = function (e) {
+                _this12.setState({
+                    input4: e.target.value
+                });
+            }, _this12.handleClickHeader = function () {
+                _this12.setState({
+                    displayHead: 'block',
+                    displayCalc: _this12.state.displayCalc === 'block' ? 'none' : 'block'
+                });
+            }, _temp6), _possibleConstructorReturn(_this12, _ret6);
+        }
+
+        _createClass(CalculatorIsolationRoof, [{
+            key: 'render',
+            value: function render() {
+                var result = void 0;
+                result = 1 / 0.25 - (0.04 + 0.13 + parseInt(this.state.input1) + parseInt(this.state.input2) + parseInt(this.state.input3) + parseInt(this.state.input4));
+                var welna = (result * this.state.input4).toFixed(3);
+                var span = void 0;
+
+                if (this.state.input1 && this.state.input2 && this.state.input3 && this.state.input4 !== '') {
+                    span = _react2.default.createElement(
+                        'span',
+                        null,
+                        'Grubo\u015B\u0107 warstwy izolacyjnej wynosi: ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            welna,
+                            ' m'
+                        ),
+                        '. Znajd\u017A katalog producent\xF3w warstwy izolacyjnej i dobierz odpowiedni\u0105 grubo\u015B\u0107 katalogow\u0105.'
+                    );
+                } else {
+                    span = '';
+                }
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'h3',
+                        { style: { display: this.state.displayHead }, onClick: this.handleClickHeader },
+                        'Kalkulator grubo\u015Bci warstwy izolacyjnej dachu'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { style: { display: this.state.displayCalc } },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj op\xF3r cieplny dach\xF3wki:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input1, onChange: this.handleInput1 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj op\xF3r cieplny p\u0142yty gipsowo-kartonowej:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input2, onChange: this.handleInput2 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj op\xF3r cieplny folii paraizolacyjnej:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input3, onChange: this.handleInput3 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj wsp\xF3\u0142czynnik przewodzenia ciep\u0142a warstwy izolacyjnej:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input4, onChange: this.handleInput4 })
+                        ),
+                        span
+                    )
+                );
+            }
+        }]);
+
+        return CalculatorIsolationRoof;
+    }(_react2.default.Component);
+
+    var CalculatorIsolationFloor = function (_React$Component12) {
+        _inherits(CalculatorIsolationFloor, _React$Component12);
+
+        function CalculatorIsolationFloor() {
+            var _ref7;
+
+            var _temp7, _this13, _ret7;
+
+            _classCallCheck(this, CalculatorIsolationFloor);
+
+            for (var _len7 = arguments.length, args = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+                args[_key7] = arguments[_key7];
+            }
+
+            return _ret7 = (_temp7 = (_this13 = _possibleConstructorReturn(this, (_ref7 = CalculatorIsolationFloor.__proto__ || Object.getPrototypeOf(CalculatorIsolationFloor)).call.apply(_ref7, [this].concat(args))), _this13), _this13.state = {
+                input1: '',
+                input2: '',
+                input3: '',
+                input4: '',
+                displayHead: 'block',
+                displayCalc: 'none'
+            }, _this13.handleInput1 = function (e) {
+                _this13.setState({
+                    input1: e.target.value
+                });
+            }, _this13.handleInput2 = function (e) {
+                _this13.setState({
+                    input2: e.target.value
+                });
+            }, _this13.handleInput3 = function (e) {
+                _this13.setState({
+                    input3: e.target.value
+                });
+            }, _this13.handleInput4 = function (e) {
+                _this13.setState({
+                    input4: e.target.value
+                });
+            }, _this13.handleClickHeader = function () {
+                _this13.setState({
+                    displayHead: 'block',
+                    displayCalc: _this13.state.displayCalc === 'block' ? 'none' : 'block'
+                });
+            }, _temp7), _possibleConstructorReturn(_this13, _ret7);
+        }
+
+        _createClass(CalculatorIsolationFloor, [{
+            key: 'render',
+            value: function render() {
+                var result = void 0;
+                result = 1 / 0.45 - (0.13 + parseInt(2 * this.state.input1) + parseInt(this.state.input2) + parseInt(2 * this.state.input3));
+                var welna = (result * this.state.input4).toFixed(3);
+                var span = void 0;
+
+                if (this.state.input1 && this.state.input2 && this.state.input3 && this.state.input4 !== '') {
+                    span = _react2.default.createElement(
+                        'span',
+                        null,
+                        'Grubo\u015B\u0107 warstwy izolacyjnej wynosi: ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            welna,
+                            ' m'
+                        ),
+                        '. Znajd\u017A katalog producent\xF3w warstwy izolacyjnej i dobierz odpowiedni\u0105 grubo\u015B\u0107 katalogow\u0105.'
+                    );
+                } else {
+                    span = '';
+                }
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'h3',
+                        { style: { display: this.state.displayHead }, onClick: this.handleClickHeader },
+                        'Kalkulator grubo\u015Bci warstwy izolacyjnej pod\u0142ogi'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { style: { display: this.state.displayCalc } },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj op\xF3r cieplny betonu zwyk\u0142wego:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input1, onChange: this.handleInput1 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj op\xF3r cieplny piasku:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input2, onChange: this.handleInput2 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj op\xF3r cieplny folii paraizolacyjnej:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input3, onChange: this.handleInput3 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj wsp\xF3\u0142czynnik przewodzenia ciep\u0142a warstwy izolacyjnej:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input4, onChange: this.handleInput4 })
+                        ),
+                        span
+                    )
+                );
+            }
+        }]);
+
+        return CalculatorIsolationFloor;
+    }(_react2.default.Component);
+
+    var CalculatorBlock = function (_React$Component13) {
+        _inherits(CalculatorBlock, _React$Component13);
+
+        function CalculatorBlock() {
+            var _ref8;
+
+            var _temp8, _this14, _ret8;
+
+            _classCallCheck(this, CalculatorBlock);
+
+            for (var _len8 = arguments.length, args = Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
+                args[_key8] = arguments[_key8];
+            }
+
+            return _ret8 = (_temp8 = (_this14 = _possibleConstructorReturn(this, (_ref8 = CalculatorBlock.__proto__ || Object.getPrototypeOf(CalculatorBlock)).call.apply(_ref8, [this].concat(args))), _this14), _this14.state = {
+                input1: '',
+                select: '',
+                ytong: '0.119201',
+                silika: '0.066267',
+                thermopor: '0.08925',
+                cegla: '0.01625',
+                solbet: '0.1416',
+                displayHead: 'block',
+                displayCalc: 'none'
+            }, _this14.handleClick1 = function (e) {
+                _this14.setState({
+                    input1: e.target.value
+                });
+            }, _this14.handleSelect = function (e) {
+                _this14.setState({
+                    select: e.target.value
+                });
+                console.log(_this14.state.select);
+            }, _this14.handleClickHeader = function () {
+                _this14.setState({
+                    displayHead: 'block',
+                    displayCalc: _this14.state.displayCalc === 'block' ? 'none' : 'block'
+                });
+            }, _temp8), _possibleConstructorReturn(_this14, _ret8);
+        }
+
+        _createClass(CalculatorBlock, [{
+            key: 'render',
+            value: function render() {
+                var result = Math.ceil(this.state.input1 / this.state.select);
+                var span = void 0;
+
+                if (this.state.input1 && this.state.select !== '') {
+                    span = _react2.default.createElement(
+                        'span',
+                        null,
+                        'Do postawienia \u015Bcian b\u0119dziesz potrzebowa\u0107 ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            result
+                        ),
+                        ' pustak\xF3w'
+                    );
+                } else {
+                    span = '';
+                }
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'h3',
+                        { style: { display: this.state.displayHead }, onClick: this.handleClickHeader },
+                        'Kalkulator ilo\u015Bci pustak\xF3w potrzebnych do wybudowania \u015Bcian'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { style: { display: this.state.displayCalc } },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Podaj powierzchni\u0119 \u015Bcian w domu:',
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input1, onChange: this.handleClick1 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            _react2.default.createElement(
+                                'select',
+                                { value: this.state.select, onChange: this.handleSelect },
+                                _react2.default.createElement(
+                                    'option',
+                                    { value: this.state.ytong },
+                                    'Ytong PP3/0,5 S+GT'
+                                ),
+                                _react2.default.createElement(
+                                    'option',
+                                    { value: this.state.silika },
+                                    'Silka E18 klasy 15'
+                                ),
+                                _react2.default.createElement(
+                                    'option',
+                                    { value: this.state.thermopor },
+                                    'Thermopor 25 P+W'
+                                ),
+                                _react2.default.createElement(
+                                    'option',
+                                    { value: this.state.cegla },
+                                    'Ceg\u0142a pe\u0142na'
+                                ),
+                                _react2.default.createElement(
+                                    'option',
+                                    { value: this.state.solbet },
+                                    'Solbet Optimal'
+                                )
+                            )
+                        ),
+                        span
+                    )
+                );
+            }
+        }]);
+
+        return CalculatorBlock;
+    }(_react2.default.Component);
+
+    var CalculatorPipe = function (_React$Component14) {
+        _inherits(CalculatorPipe, _React$Component14);
 
         function CalculatorPipe() {
-            var _ref3;
+            var _ref9;
 
-            var _temp3, _this9, _ret3;
+            var _temp9, _this15, _ret9;
 
             _classCallCheck(this, CalculatorPipe);
 
-            for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-                args[_key3] = arguments[_key3];
+            for (var _len9 = arguments.length, args = Array(_len9), _key9 = 0; _key9 < _len9; _key9++) {
+                args[_key9] = arguments[_key9];
             }
 
-            return _ret3 = (_temp3 = (_this9 = _possibleConstructorReturn(this, (_ref3 = CalculatorPipe.__proto__ || Object.getPrototypeOf(CalculatorPipe)).call.apply(_ref3, [this].concat(args))), _this9), _this9.state = {
+            return _ret9 = (_temp9 = (_this15 = _possibleConstructorReturn(this, (_ref9 = CalculatorPipe.__proto__ || Object.getPrototypeOf(CalculatorPipe)).call.apply(_ref9, [this].concat(args))), _this15), _this15.state = {
                 input5: '',
                 displayHead: 'block',
                 displayCalc: 'none'
-            }, _this9.handleInput5 = function (e) {
-                _this9.setState({
+            }, _this15.handleInput5 = function (e) {
+                _this15.setState({
                     input5: e.target.value
                 });
-            }, _this9.handleClickHeader = function () {
-                _this9.setState({
+            }, _this15.handleClickHeader = function () {
+                _this15.setState({
                     displayHead: 'block',
-                    displayCalc: _this9.state.displayCalc === 'block' ? 'none' : 'block'
+                    displayCalc: _this15.state.displayCalc === 'block' ? 'none' : 'block'
                 });
-            }, _temp3), _possibleConstructorReturn(_this9, _ret3);
+            }, _temp9), _possibleConstructorReturn(_this15, _ret9);
         }
 
         _createClass(CalculatorPipe, [{
@@ -14042,6 +14558,24 @@ document.addEventListener('DOMContentLoaded', function () {
             value: function render() {
 
                 var podloga = 7 * this.state.input5;
+                var span = void 0;
+
+                if (this.state.input5 !== '') {
+                    span = _react2.default.createElement(
+                        'span',
+                        null,
+                        'Potrzebujesz ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            podloga,
+                            ' m'
+                        ),
+                        ' d\u0142ugo\u015Bci rur do instalacji ogrzewania pod\u0142ogowego'
+                    );
+                } else {
+                    span = '';
+                }
                 return _react2.default.createElement(
                     'div',
                     null,
@@ -14059,14 +14593,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             'Podaj powierzchni\u0119 domu:',
                             _react2.default.createElement('input', { type: 'text', value: this.state.input5, onChange: this.handleInput5 })
                         ),
-                        _react2.default.createElement('br', null),
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            'Potrzebujesz ',
-                            podloga,
-                            ' m d\u0142ugo\u015Bci rur do instalacji ogrzewania pod\u0142ogowego'
-                        )
+                        span
                     )
                 );
             }
@@ -14075,34 +14602,34 @@ document.addEventListener('DOMContentLoaded', function () {
         return CalculatorPipe;
     }(_react2.default.Component);
 
-    var CalculatorEnergy = function (_React$Component10) {
-        _inherits(CalculatorEnergy, _React$Component10);
+    var CalculatorEnergy = function (_React$Component15) {
+        _inherits(CalculatorEnergy, _React$Component15);
 
         function CalculatorEnergy() {
-            var _ref4;
+            var _ref10;
 
-            var _temp4, _this10, _ret4;
+            var _temp10, _this16, _ret10;
 
             _classCallCheck(this, CalculatorEnergy);
 
-            for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-                args[_key4] = arguments[_key4];
+            for (var _len10 = arguments.length, args = Array(_len10), _key10 = 0; _key10 < _len10; _key10++) {
+                args[_key10] = arguments[_key10];
             }
 
-            return _ret4 = (_temp4 = (_this10 = _possibleConstructorReturn(this, (_ref4 = CalculatorEnergy.__proto__ || Object.getPrototypeOf(CalculatorEnergy)).call.apply(_ref4, [this].concat(args))), _this10), _this10.state = {
+            return _ret10 = (_temp10 = (_this16 = _possibleConstructorReturn(this, (_ref10 = CalculatorEnergy.__proto__ || Object.getPrototypeOf(CalculatorEnergy)).call.apply(_ref10, [this].concat(args))), _this16), _this16.state = {
                 input6: '',
                 displayHead: 'block',
                 displayCalc: 'none'
-            }, _this10.handleInput6 = function (e) {
-                _this10.setState({
+            }, _this16.handleInput6 = function (e) {
+                _this16.setState({
                     input6: e.target.value
                 });
-            }, _this10.handleClickHeader = function () {
-                _this10.setState({
+            }, _this16.handleClickHeader = function () {
+                _this16.setState({
                     displayHead: 'block',
-                    displayCalc: _this10.state.displayCalc === 'block' ? 'none' : 'block'
+                    displayCalc: _this16.state.displayCalc === 'block' ? 'none' : 'block'
                 });
-            }, _temp4), _possibleConstructorReturn(_this10, _ret4);
+            }, _temp10), _possibleConstructorReturn(_this16, _ret10);
         }
 
         _createClass(CalculatorEnergy, [{
@@ -14111,6 +14638,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 var cwu = Math.floor(this.state.input6 * 60 * 365 * 0.95 * 4.2 * (55 - 7.6) / 1000000);
                 var gaz = Math.floor(cwu * 1000000000 / (35.865 * 1000000 * 0.88));
                 var price = gaz * 2.26;
+                var span = void 0;
+
+                if (this.state.input6 !== '') {
+                    span = _react2.default.createElement(
+                        'span',
+                        null,
+                        'Twoje zapotrzebowanie na energi\u0119 do przygotowania CWU wynosi ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            cwu,
+                            ' GJ/rok'
+                        ),
+                        '. Dlatego te\u017C Twoje zapotrzebowanie na pierwotne no\u015Bniki energii wynosi ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            gaz,
+                            ' m\xB3 gazu/sezon grzewczy'
+                        ),
+                        '. Przybli\u017Cony koszt za ogrzewanie w sezonie grzewczym b\u0119dzie wynosi\u0142o ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            price,
+                            ' z\u0142'
+                        ),
+                        '.',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'em',
+                            null,
+                            '(przyj\u0119to warto\u015B\u0107 opa\u0142ow\u0105 gazu r\xF3wn\u0105 35,865 MJ/m\xB3, sprawno\u015B\u0107 kot\u0142a 88%, cena za gaz 2.26z\u0142/m\xB3 gazu, temp. wody dostarczane: 55\xB0C,roczna \u015Brednia temp. wody: 7,6\xB0C)'
+                        )
+                    );
+                } else {
+                    span = '';
+                }
                 return _react2.default.createElement(
                     'div',
                     null,
@@ -14126,27 +14692,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             'label',
                             null,
                             'Podaj liczb\u0119 os\xF3b mieszkaj\u0105c\u0105 w domu:',
-                            _react2.default.createElement('input', { type: 'text', value: this.state.input6, onChange: this.handleInput6 }),
-                            _react2.default.createElement('br', null),
-                            _react2.default.createElement(
-                                'span',
-                                null,
-                                'Twoje zapotrzebowanie na energi\u0119 do przygotowania CWU wynosi ',
-                                cwu,
-                                ' GJ/rok. Dlatego te\u017C Twoje zapotzrebowanie na pierwotne no\u015Bniki energii wynosi ',
-                                gaz,
-                                ' m\xB3 gazu/sezon grzewczy. Przybli\u017Cony koszt za ogrzewanie w sezonie grzewczym b\u0119dzie wynosi\u0142o ',
-                                price,
-                                ' z\u0142.',
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'em',
-                                    null,
-                                    '(przyj\u0119to warto\u015B\u0107 opa\u0142ow\u0105 gazu r\xF3wn\u0105 35,865 MJ/m\xB3, sprawno\u015B\u0107 kot\u0142a 88%, cena za gaz 2.26z\u0142/m\xB3 gazu, temp. wody dostarczane: 55\xB0C,roczna \u015Brednia temp. wody: 7,6\xB0C)'
-                                )
-                            )
-                        )
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input6, onChange: this.handleInput6 })
+                        ),
+                        span
                     )
                 );
             }
@@ -14155,39 +14703,39 @@ document.addEventListener('DOMContentLoaded', function () {
         return CalculatorEnergy;
     }(_react2.default.Component);
 
-    var CalculatorPrice = function (_React$Component11) {
-        _inherits(CalculatorPrice, _React$Component11);
+    var CalculatorPrice = function (_React$Component16) {
+        _inherits(CalculatorPrice, _React$Component16);
 
         function CalculatorPrice() {
-            var _ref5;
+            var _ref11;
 
-            var _temp5, _this11, _ret5;
+            var _temp11, _this17, _ret11;
 
             _classCallCheck(this, CalculatorPrice);
 
-            for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-                args[_key5] = arguments[_key5];
+            for (var _len11 = arguments.length, args = Array(_len11), _key11 = 0; _key11 < _len11; _key11++) {
+                args[_key11] = arguments[_key11];
             }
 
-            return _ret5 = (_temp5 = (_this11 = _possibleConstructorReturn(this, (_ref5 = CalculatorPrice.__proto__ || Object.getPrototypeOf(CalculatorPrice)).call.apply(_ref5, [this].concat(args))), _this11), _this11.state = {
+            return _ret11 = (_temp11 = (_this17 = _possibleConstructorReturn(this, (_ref11 = CalculatorPrice.__proto__ || Object.getPrototypeOf(CalculatorPrice)).call.apply(_ref11, [this].concat(args))), _this17), _this17.state = {
                 input7: '',
                 input8: '',
                 displayHead: 'block',
                 displayCalc: 'none'
-            }, _this11.handleInput7 = function (e) {
-                _this11.setState({
+            }, _this17.handleInput7 = function (e) {
+                _this17.setState({
                     input7: e.target.value
                 });
-            }, _this11.handleInput8 = function (e) {
-                _this11.setState({
+            }, _this17.handleInput8 = function (e) {
+                _this17.setState({
                     input8: e.target.value
                 });
-            }, _this11.handleClickHeader = function () {
-                _this11.setState({
+            }, _this17.handleClickHeader = function () {
+                _this17.setState({
                     displayHead: 'block',
-                    displayCalc: _this11.state.displayCalc === 'block' ? 'none' : 'block'
+                    displayCalc: _this17.state.displayCalc === 'block' ? 'none' : 'block'
                 });
-            }, _temp5), _possibleConstructorReturn(_this11, _ret5);
+            }, _temp11), _possibleConstructorReturn(_this17, _ret11);
         }
 
         _createClass(CalculatorPrice, [{
@@ -14198,6 +14746,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 var gaz = Math.floor(energy * 1000 / (35.865 * 0.93));
                 var priceGaz = Math.floor(gaz * 2.26);
                 var finalPrice = priceGaz - this.state.input7;
+                var span = void 0;
+
+                if (this.state.input7 && this.state.input8 !== '') {
+                    span = _react2.default.createElement(
+                        'span',
+                        null,
+                        'Ze spalonego w\u0119gla uzyskasz energii ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            energy,
+                            ' GJ/rok'
+                        ),
+                        '. Gdyby\u015B zast\u0105pi\u0142 piec w\u0119glowy na piec gazowy, to przy takiej samej energii zu\u017Cyjesz ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            gaz,
+                            ' m\xB3 gazu/rok'
+                        ),
+                        '. Koszt zastosowania pieca gazowego b\u0119dzie wynosi\u0142 ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            priceGaz,
+                            ' z\u0142/rok'
+                        ),
+                        '. Zatem zastosowanie pieca gazowego jest dro\u017Csze o ',
+                        _react2.default.createElement(
+                            'strong',
+                            null,
+                            finalPrice,
+                            ' z\u0142'
+                        ),
+                        '. Jednak pami\u0119taj o \u015Brodowisku i zadbaj o nie !!!'
+                    );
+                } else {
+                    span = '';
+                }
                 return _react2.default.createElement(
                     'div',
                     null,
@@ -14213,29 +14800,15 @@ document.addEventListener('DOMContentLoaded', function () {
                             'label',
                             null,
                             'Podaj koszt zu\u017Cycia w\u0119gla na sezon grzewczy:',
-                            _react2.default.createElement('input', { type: 'number', value: this.state.input7, onChange: this.handleInput7 }),
-                            _react2.default.createElement('br', null)
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input7, onChange: this.handleInput7 })
                         ),
                         _react2.default.createElement(
                             'label',
                             null,
                             'Podaj cen\u0119 tony w\u0119gla:',
-                            _react2.default.createElement('input', { type: 'text', value: this.state.input8, onChange: this.handleInput8 }),
-                            _react2.default.createElement('br', null)
+                            _react2.default.createElement('input', { type: 'text', value: this.state.input8, onChange: this.handleInput8 })
                         ),
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            'Ze spalonego w\u0119gla uzyskasz energii ',
-                            energy,
-                            ' GJ/rok. Gdyby\u015B zast\u0105pi\u0142 piec w\u0119glowy na piec gazowy, to przy takiej samej energii zu\u017Cyjesz ',
-                            gaz,
-                            ' m\xB3 gazu/rok. Koszt zastosowania pieca gazowego b\u0119dzie wynosi\u0142 ',
-                            priceGaz,
-                            ' z\u0142/rok.Zatem zastosowanie pieca gazowego jest dro\u017Csze o ',
-                            finalPrice,
-                            ' z\u0142. Jednak pami\u0119taj o \u015Brodowisku i zadbaj o nie !!!'
-                        )
+                        span
                     )
                 );
             }
@@ -14244,21 +14817,21 @@ document.addEventListener('DOMContentLoaded', function () {
         return CalculatorPrice;
     }(_react2.default.Component);
 
-    var CalculatorWarm = function (_React$Component12) {
-        _inherits(CalculatorWarm, _React$Component12);
+    var CalculatorWarm = function (_React$Component17) {
+        _inherits(CalculatorWarm, _React$Component17);
 
         function CalculatorWarm() {
-            var _ref6;
+            var _ref12;
 
-            var _temp6, _this12, _ret6;
+            var _temp12, _this18, _ret12;
 
             _classCallCheck(this, CalculatorWarm);
 
-            for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-                args[_key6] = arguments[_key6];
+            for (var _len12 = arguments.length, args = Array(_len12), _key12 = 0; _key12 < _len12; _key12++) {
+                args[_key12] = arguments[_key12];
             }
 
-            return _ret6 = (_temp6 = (_this12 = _possibleConstructorReturn(this, (_ref6 = CalculatorWarm.__proto__ || Object.getPrototypeOf(CalculatorWarm)).call.apply(_ref6, [this].concat(args))), _this12), _this12.state = {
+            return _ret12 = (_temp12 = (_this18 = _possibleConstructorReturn(this, (_ref12 = CalculatorWarm.__proto__ || Object.getPrototypeOf(CalculatorWarm)).call.apply(_ref12, [this].concat(args))), _this18), _this18.state = {
                 select: '',
                 input9: '',
                 old: '150',
@@ -14267,26 +14840,40 @@ document.addEventListener('DOMContentLoaded', function () {
                 energy: '50',
                 displayHead: 'block',
                 displayCalc: 'none'
-            }, _this12.handleSelect = function (e) {
-                _this12.setState({
+            }, _this18.handleSelect = function (e) {
+                _this18.setState({
                     select: e.target.value
                 });
-            }, _this12.handleInput9 = function (e) {
-                _this12.setState({
+            }, _this18.handleInput9 = function (e) {
+                _this18.setState({
                     input9: e.target.value
                 });
-            }, _this12.handleClickHeader = function () {
-                _this12.setState({
+            }, _this18.handleClickHeader = function () {
+                _this18.setState({
                     displayHead: 'block',
-                    displayCalc: _this12.state.displayCalc === 'block' ? 'none' : 'block'
+                    displayCalc: _this18.state.displayCalc === 'block' ? 'none' : 'block'
                 });
-            }, _temp6), _possibleConstructorReturn(_this12, _ret6);
+            }, _temp12), _possibleConstructorReturn(_this18, _ret12);
         }
 
         _createClass(CalculatorWarm, [{
             key: 'render',
             value: function render() {
                 var howMuch = this.state.input9 * this.state.select;
+                var span = void 0;
+
+                if (this.state.input9 !== '') {
+                    span = _react2.default.createElement(
+                        'span',
+                        null,
+                        'Zapotrzebowanie ciep\u0142a dla Twojego domu b\u0119dzie wynosi\u0142o ',
+                        howMuch,
+                        ' W.'
+                    );
+                } else {
+                    span = '';
+                }
+
                 return _react2.default.createElement(
                     'div',
                     null,
@@ -14335,12 +14922,15 @@ document.addEventListener('DOMContentLoaded', function () {
                             _react2.default.createElement('input', { type: 'text', value: this.state.input9, onChange: this.handleInput9 })
                         ),
                         _react2.default.createElement('br', null),
+                        span
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
                         _react2.default.createElement(
-                            'span',
+                            'em',
                             null,
-                            'Zapotrzebowanie ciep\u0142a dla Twojego domu b\u0119dzie wynosi\u0142o ',
-                            howMuch,
-                            ' W.'
+                            '* Pami\u0119taj, \u017Ce wszystkie obliczenia s\u0105 pogl\u0105dowe.'
                         )
                     )
                 );
@@ -14350,8 +14940,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return CalculatorWarm;
     }(_react2.default.Component);
 
-    var Contact = function (_React$Component13) {
-        _inherits(Contact, _React$Component13);
+    var Contact = function (_React$Component18) {
+        _inherits(Contact, _React$Component18);
 
         function Contact() {
             _classCallCheck(this, Contact);
@@ -14380,7 +14970,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             _react2.default.createElement('br', null),
                             'email: designyourhome@gmail.com'
                         ),
-                        _react2.default.createElement('iframe', { src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4311.543695995482!2d19.997342960611153!3d50.017742215815794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47164364bbe52745%3A0x95b6a3ed51c0330f!2sKsi%C4%99dza+Piotra+%C5%9Aciegiennego+57%2C+33-332+Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1516794819425', width: '600', height: '450', frameBorder: '0', style: { border: "0" }, allowFullScreen: true })
+                        _react2.default.createElement(ContactForm, null),
+                        _react2.default.createElement('iframe', { src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4311.543695995482!2d19.997342960611153!3d50.017742215815794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47164364bbe52745%3A0x95b6a3ed51c0330f!2sKsi%C4%99dza+Piotra+%C5%9Aciegiennego+57%2C+33-332+Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1516794819425', width: '600', height: '450', frameBorder: '0', style: { border: "0" }, allowFullScreen: true }),
+                        _react2.default.createElement(Link, null)
                     )
                 );
             }
@@ -14389,8 +14981,215 @@ document.addEventListener('DOMContentLoaded', function () {
         return Contact;
     }(_react2.default.Component);
 
-    var Template = function (_React$Component14) {
-        _inherits(Template, _React$Component14);
+    var ContactForm = function (_React$Component19) {
+        _inherits(ContactForm, _React$Component19);
+
+        function ContactForm() {
+            var _ref13;
+
+            var _temp13, _this20, _ret13;
+
+            _classCallCheck(this, ContactForm);
+
+            for (var _len13 = arguments.length, args = Array(_len13), _key13 = 0; _key13 < _len13; _key13++) {
+                args[_key13] = arguments[_key13];
+            }
+
+            return _ret13 = (_temp13 = (_this20 = _possibleConstructorReturn(this, (_ref13 = ContactForm.__proto__ || Object.getPrototypeOf(ContactForm)).call.apply(_ref13, [this].concat(args))), _this20), _this20.state = {
+                input1: '',
+                input2: '',
+                text: '',
+                select: ''
+            }, _this20.handleClick1 = function (e) {
+                _this20.setState({
+                    input1: e.target.value
+                });
+            }, _this20.handleClick2 = function (e) {
+                _this20.setState({
+                    input2: e.target.value
+                });
+            }, _this20.handleSelect = function (e) {
+                _this20.setState({
+                    select: e.target.value
+                });
+            }, _this20.handleText = function (e) {
+                _this20.setState({
+                    text: e.target.value
+                });
+            }, _this20.handleSubmit = function (e) {
+                e.preventDefault();
+                var url = 'http://localhost:3000/contacts';
+
+                var obj = {
+                    name: _this20.state.input1,
+                    email: _this20.state.input2,
+                    msg: _this20.state.text,
+                    section: _this20.state.select
+                };
+                fetch(url, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    method: "POST",
+                    body: JSON.stringify(obj)
+                });
+            }, _temp13), _possibleConstructorReturn(_this20, _ret13);
+        }
+
+        _createClass(ContactForm, [{
+            key: 'render',
+            value: function render() {
+                var style = {
+                    display: 'block',
+                    width: '350px',
+                    height: '50px',
+                    padding: '5px'
+                };
+                var btn = {
+                    width: '100px',
+                    height: '50px',
+                    color: 'grey',
+                    marginTop: '20px'
+                };
+
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'form',
+                        { className: 'form' },
+                        _react2.default.createElement(
+                            'h1',
+                            null,
+                            'Formularz kontaktowy'
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Imi\u0119 i Nazwisko:',
+                            _react2.default.createElement('input', { type: 'text', style: style, value: this.state.input1, onChange: this.handleClick1 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Email:',
+                            _react2.default.createElement('input', { type: 'email', style: style, value: this.state.input2, onChange: this.handleClick2 })
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Dzia\u0142:',
+                            _react2.default.createElement(
+                                'select',
+                                { value: this.state.select, onChange: this.handleSelect },
+                                _react2.default.createElement(
+                                    'option',
+                                    null,
+                                    'Konsultant'
+                                ),
+                                _react2.default.createElement(
+                                    'option',
+                                    null,
+                                    'Projektant'
+                                ),
+                                _react2.default.createElement(
+                                    'option',
+                                    null,
+                                    'Inwestor'
+                                ),
+                                _react2.default.createElement(
+                                    'option',
+                                    null,
+                                    'Prezes'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Wiadomo\u015B\u0107:',
+                            _react2.default.createElement('textarea', { style: style, value: this.state.text, onChange: this.handleText })
+                        ),
+                        _react2.default.createElement('input', { type: 'submit', value: 'submit', style: btn, onClick: this.handleSubmit })
+                    )
+                );
+            }
+        }]);
+
+        return ContactForm;
+    }(_react2.default.Component);
+
+    var Link = function (_React$Component20) {
+        _inherits(Link, _React$Component20);
+
+        function Link() {
+            _classCallCheck(this, Link);
+
+            return _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).apply(this, arguments));
+        }
+
+        _createClass(Link, [{
+            key: 'render',
+            value: function render() {
+
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Przydatne linki do materia\u0142\xF3w budowlanych:'
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: 'https://www.solbet.pl/' },
+                                'Solbet'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: 'http://www.leier.pl/3100_scienne_ceramiczne.php' },
+                                'Leier'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: 'https://www.ytong-silka.pl/' },
+                                'Ytong'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: 'https://www.isover.pl/' },
+                                'Isover'
+                            )
+                        )
+                    )
+                );
+            }
+        }]);
+
+        return Link;
+    }(_react2.default.Component);
+
+    var Template = function (_React$Component21) {
+        _inherits(Template, _React$Component21);
 
         function Template() {
             _classCallCheck(this, Template);
@@ -14465,8 +15264,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return Template;
     }(_react2.default.Component);
 
-    var App = function (_React$Component15) {
-        _inherits(App, _React$Component15);
+    var App = function (_React$Component22) {
+        _inherits(App, _React$Component22);
 
         function App() {
             _classCallCheck(this, App);
@@ -25575,7 +26374,7 @@ exports = module.exports = __webpack_require__(218)(false);
 
 
 // module
-exports.push([module.i, "* {\n  font-family: 'Playfair Display', serif; }\n\n.grid {\n  width: 100%;\n  max-width: 1200px;\n  margin: 0 auto; }\n  .grid .row:before, .grid .row:after {\n    content: \"\";\n    display: table;\n    clear: both; }\n  .grid .row [class*='col-'] {\n    float: left;\n    min-height: 1px; }\n  .grid .row .col-1 {\n    width: 8.33333%; }\n  .grid .row .col-2 {\n    width: 16.66667%; }\n  .grid .row .col-3 {\n    width: 25%; }\n  .grid .row .col-4 {\n    width: 33.33333%; }\n  .grid .row .col-5 {\n    width: 41.66667%; }\n  .grid .row .col-6 {\n    width: 50%; }\n  .grid .row .col-7 {\n    width: 58.33333%; }\n  .grid .row .col-8 {\n    width: 66.66667%; }\n  .grid .row .col-9 {\n    width: 75%; }\n  .grid .row .col-10 {\n    width: 83.33333%; }\n  .grid .row .col-11 {\n    width: 91.66667%; }\n  .grid .row .col-12 {\n    width: 100%; }\n\nli {\n  list-style: none;\n  display: inline-block;\n  padding-right: 20px;\n  color: black;\n  margin: 5px;\n  text-align: center; }\n\n.list {\n  color: black;\n  text-decoration: none; }\n\n.paragraph1 {\n  font-size: 30px; }\n\n.paragraph2 {\n  font-size: 18px;\n  padding-right: 40px;\n  padding-top: 20px; }\n\n.definition {\n  font-size: 18px;\n  padding-right: 40px;\n  padding-top: 20px; }\n\n.home {\n  text-align: center;\n  color: black;\n  position: absolute;\n  top: 300px;\n  left: 500px;\n  animation-name: blur;\n  animation-duration: 2s; }\n\n@keyframes blur {\n  0% {\n    filter: blur(10px); }\n  100% {\n    filter: blur(0); } }\n\n.box {\n  height: 300px;\n  width: 300px;\n  position: relative; }\n\n.imgAbout {\n  position: absolute;\n  top: 50px; }\n\n.imgAbout1 {\n  padding-top: 80px; }\n\narticle {\n  margin-top: 50px; }\n\nimg {\n  height: 300px;\n  width: 500px; }\n\n.galleryText {\n  text-align: center; }\n\n.fullScreen {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  z-index: 1;\n  background: rgba(255, 255, 255, 0.7); }\n\n.fullScreen .close {\n  display: block;\n  margin: auto; }\n\n.fullScreen img {\n  display: block;\n  margin: 15px auto 5px;\n  width: auto;\n  height: calc(100% - 50px); }\n\nbody {\n  background-image: url(" + escape(__webpack_require__(219)) + ");\n  background-size: cover;\n  background-repeat: no-repeat; }\n\n.calculatorList li {\n  display: block;\n  text-align: left;\n  padding: 10px; }\n\ninput {\n  width: 100px;\n  height: 20px; }\n\n.contact {\n  margin-top: 50px; }\n\niframe {\n  margin-left: 300px; }\n\n/*\n.mainBox.header{\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-image: url(\"./../images/dom.png\");\n}\nfooter{\n  height: 200px;\n\n}\n*/\n", ""]);
+exports.push([module.i, "* {\n  font-family: 'Playfair Display', serif; }\n\n.grid {\n  width: 100%;\n  max-width: 1200px;\n  margin: 0 auto; }\n  .grid .row:before, .grid .row:after {\n    content: \"\";\n    display: table;\n    clear: both; }\n  .grid .row [class*='col-'] {\n    float: left;\n    min-height: 1px; }\n  .grid .row .col-1 {\n    width: 8.33333%; }\n  .grid .row .col-2 {\n    width: 16.66667%; }\n  .grid .row .col-3 {\n    width: 25%; }\n  .grid .row .col-4 {\n    width: 33.33333%; }\n  .grid .row .col-5 {\n    width: 41.66667%; }\n  .grid .row .col-6 {\n    width: 50%; }\n  .grid .row .col-7 {\n    width: 58.33333%; }\n  .grid .row .col-8 {\n    width: 66.66667%; }\n  .grid .row .col-9 {\n    width: 75%; }\n  .grid .row .col-10 {\n    width: 83.33333%; }\n  .grid .row .col-11 {\n    width: 91.66667%; }\n  .grid .row .col-12 {\n    width: 100%; }\n\nli {\n  list-style: none;\n  display: inline-block;\n  padding-right: 20px;\n  color: black;\n  margin: 5px;\n  text-align: center; }\n\n.list {\n  color: black;\n  text-decoration: none; }\n\n.paragraph1 {\n  font-size: 30px; }\n\n.paragraph2 {\n  font-size: 18px;\n  padding-right: 40px;\n  padding-top: 20px; }\n\n.definition {\n  font-size: 18px;\n  padding-right: 40px;\n  padding-top: 20px; }\n\n.home {\n  text-align: center;\n  color: black;\n  position: absolute;\n  top: 300px;\n  left: 500px;\n  animation-name: blur;\n  animation-duration: 2s; }\n\n@keyframes blur {\n  0% {\n    filter: blur(10px); }\n  100% {\n    filter: blur(0); } }\n\n.box {\n  height: 300px;\n  width: 300px;\n  position: relative; }\n\n.imgAbout {\n  position: absolute;\n  top: 50px; }\n\n.imgAbout1 {\n  padding-top: 100px; }\n\narticle {\n  margin-top: 50px; }\n\nimg {\n  height: 300px;\n  width: 500px; }\n\n.galleryText {\n  text-align: center; }\n\n.fullScreen {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  z-index: 1;\n  background: rgba(255, 255, 255, 0.7); }\n\n.fullScreen .close {\n  display: block;\n  margin: auto; }\n\n.fullScreen img {\n  display: block;\n  margin: 15px auto 5px;\n  width: auto;\n  height: calc(100% - 50px); }\n\nbody {\n  background-image: url(" + escape(__webpack_require__(219)) + ");\n  background-size: cover;\n  background-repeat: no-repeat; }\n\n.calculatorList li {\n  display: block;\n  text-align: left;\n  padding: 10px; }\n\ninput {\n  width: 100px;\n  height: 20px; }\n\nlabel {\n  display: block;\n  padding-top: 5px; }\n\nspan {\n  display: block; }\n\n.contact {\n  margin-top: 50px; }\n\niframe {\n  margin-left: 450px; }\n\n.loader {\n  border: 16px solid #f3f3f3;\n  border-top: 16px solid darkgrey;\n  border-radius: 50%;\n  width: 120px;\n  height: 120px;\n  animation: spin 2s linear infinite;\n  position: absolute;\n  top: 200px;\n  left: 550px; }\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n\nform {\n  position: absolute; }\n\n/*\n.mainBox.header{\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-image: url(\"./../images/dom.png\");\n}\nfooter{\n  height: 200px;\n\n}\n*/\n", ""]);
 
 // exports
 
