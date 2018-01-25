@@ -196,11 +196,11 @@ document.addEventListener('DOMContentLoaded',function(){
                         {big}
                         <ul>
                             <li><img onClick= {this.handleClick} src="images/g1.jpg"/></li>
-                            <li><img onClick= {this.handleClick} src="../images/g2.jpg"/></li>
-                            <li><img onClick= {this.handleClick} src="../images/g3.jpg"/></li>
-                            <li><img onClick= {this.handleClick} src="../images/g4.jpg"/></li>
-                            <li><img onClick= {this.handleClick} src="../images/dom.png"/></li>
-                            <li><img onClick= {this.handleClick} src="../images/g6.jpg"/></li>
+                            <li><img onClick= {this.handleClick} src="images/g2.jpg"/></li>
+                            <li><img onClick= {this.handleClick} src="images/g3.jpg"/></li>
+                            <li><img onClick= {this.handleClick} src="images/g4.jpg"/></li>
+                            <li><img onClick= {this.handleClick} src="images/dom.png"/></li>
+                            <li><img onClick= {this.handleClick} src="images/g6.jpg"/></li>
                         </ul>
                     </div>
                 </section>

@@ -13949,27 +13949,27 @@ document.addEventListener('DOMContentLoaded', function () {
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/g2.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: 'images/g2.jpg' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/g3.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: 'images/g3.jpg' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/g4.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: 'images/g4.jpg' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/dom.png' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: 'images/dom.png' })
                             ),
                             _react2.default.createElement(
                                 'li',
                                 null,
-                                _react2.default.createElement('img', { onClick: this.handleClick, src: '../images/g6.jpg' })
+                                _react2.default.createElement('img', { onClick: this.handleClick, src: 'images/g6.jpg' })
                             )
                         )
                     )
