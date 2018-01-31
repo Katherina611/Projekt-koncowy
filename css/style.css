@@ -62,20 +62,42 @@ li {
   padding-right: 40px;
   padding-top: 20px; }
 
+.mainPage {
+  display: flex;
+  width: 1200px;
+  height: 600px; }
+
 .home {
   text-align: center;
   color: black;
-  position: absolute;
-  top: 300px;
-  left: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   animation-name: blur;
-  animation-duration: 2s; }
+  animation-duration: 2s;
+  width: 1200px; }
 
 @keyframes blur {
   0% {
     filter: blur(10px); }
   100% {
     filter: blur(0); } }
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid darkgrey;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 200px;
+  left: 550px; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 .box {
   height: 300px;
   width: 300px;
@@ -86,6 +108,9 @@ li {
   top: 50px; }
 
 .imgAbout1 {
+  padding-top: 100px; }
+
+.imgAbout2 {
   padding-top: 100px; }
 
 article {
@@ -125,7 +150,7 @@ body {
 .calculatorList li {
   display: block;
   text-align: left;
-  padding: 10px; }
+  font-size: 14px; }
 
 input {
   width: 100px;
@@ -133,35 +158,45 @@ input {
 
 label {
   display: block;
-  padding-top: 5px; }
+  padding-top: 5px;
+  font-size: 16px; }
 
-span {
-  display: block; }
+.container span {
+  display: block;
+  animation: visibleSpan 2s linear; }
 
+@keyframes visibleSpan {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 100; } }
 .contact {
   margin-top: 50px; }
 
 iframe {
   margin-left: 450px; }
 
-.loader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid darkgrey;
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-  position: absolute;
-  top: 200px;
-  left: 550px; }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
 form {
   position: absolute; }
+
+span {
+  display: block;
+  font-size: 16px; }
+
+.likeText {
+  margin-top: 120px; }
+
+.counter {
+  font-size: 16px; }
+
+.container input {
+  margin-left: 10px; }
+
+.socialImg {
+  margin-right: 20px; }
+
+.materials {
+  margin-top: 50px; }
 
 /*
 .mainBox.header{

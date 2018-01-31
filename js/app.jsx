@@ -9,34 +9,39 @@ import {
     IndexRoute,
     hashHistory
 } from 'react-router';
-
 document.addEventListener('DOMContentLoaded',function(){
 
     class Home extends React.Component{
-        state={
-            text:<h1 className='loader'/>
+        state = {
+            loading: true
         };
-        componentDidMount(){
-            this.timeout=setTimeout(()=>{
-                this.setState({
-                    text:<h1 className='home'>DESIGN YOUR HOME</h1>
-                })
-            },2000)
+
+        componentDidMount() {
+            this.timeout=setTimeout(() =>
+                this.setState({ loading: false
+                }), 1000);
         }
         componentWillUnmount(){
             clearTimeout(this.timeout)
         }
 
-        render(){
-            return (
-                <div>
-                    {this.state.text}
-                </div>
-            )
+        render() {
+
+            if(this.state.loading) {
+                return(
+                    <div className='mainPage'>
+                        <h1 className='loader home'/>
+                    </div>
+                );
+            }else{
+                return (
+                    <div className='mainPage'>
+                        <h1 className='home'>DESIGN YOUR HOME</h1>
+                    </div>
+                );
+            }
         }
     }
-
-
     class AboutUsHeader extends React.Component{
         state={
             width:'500px'
@@ -55,7 +60,6 @@ document.addEventListener('DOMContentLoaded',function(){
             })
 
         };
-
         render(){
             const style={
                 width:this.state.width,
@@ -65,10 +69,10 @@ document.addEventListener('DOMContentLoaded',function(){
                 <div>
                     <section className='row'>
                         <p className='col-6 paragraph1'><strong>Czym się zajmujemy?</strong>
-                            <div className='paragraph2'>Przedstawiamy zasady, dzięki którym Ty sam możesz
+                            <span className='paragraph2'>Przedstawiamy zasady, dzięki którym Ty sam możesz
                                 spróbować zaprojektować swój własny dom energooszczędny. Pozwalamy rozróżnić
                                 czym jest dom pasywny a energooszczędny.
-                            </div>
+                            </span>
                         </p>
                         <div className='box col-6'>
                             <img className='imgAbout' onMouseLeave={this.handleMouseLeave} onMouseEnter={this.handleMouseEnter} style={style} title='Dom energooszczędny' src='https://perfectagent.com.au/wp-content/uploads/2017/10/two-storey-luxury-house-in-Australia-700x525.jpg'/>
@@ -97,7 +101,6 @@ document.addEventListener('DOMContentLoaded',function(){
             })
 
         };
-
         render(){
             const style={
                 width:this.state.width,
@@ -106,30 +109,54 @@ document.addEventListener('DOMContentLoaded',function(){
             return(
                 <div className='row'>
                     <p className='col-6 paragraph1'><strong>Czym są domy energooszczędne?</strong>
-                        <div className='definition'><strong>Domy energooszczędne</strong> są to budynki, których roczne zapotrzebowanie na ciepło
+                        <span className='definition'><strong>Domy energooszczędne</strong> są to budynki, których roczne zapotrzebowanie na ciepło
                             jest niższe od 70 kWh/(m2·rok). Poniżej przedstawiono straty ciepła przez przegrody zewnętzne
                             (dach, ściany, stropy, stolarka drzwiowa i okienna). Dlatego ważnym elementem jest
                             zapewnienie im odpowiedniego stopnia izolacyjności
-                        </div>
+                        </span>
                     </p>
-                    <img className='col-5 imgAbout1' onMouseLeave={this.handleMouseLeave} onMouseEnter={this.handleMouseEnter} style={style} title='Straty ciepła przez przegrody zewnętrzne' src='https://www.archon.pl/uploads/article/0/416/95/straty_ciepla.jpg'/>
+                    <img className='col-5 imgAbout1' onMouseLeave={this.handleMouseLeave} onMouseEnter={this.handleMouseEnter} style={style} title='Straty ciepła przez przegrody zewnętrzne' src='images/straty_ciepla.jpg'/>
                 </div>
             )
         }
     }
     class AboutUsPassive extends React.Component{
+        state={
+            width:'500px',
+            height:'300px',
+        };
+        handleMouseEnter=()=>{
+            this.setState({
+                width:"600px",
+                height:'400px',
+            })
+
+        };
+        handleMouseLeave=()=>{
+            this.setState({
+                width:"500px",
+                height:'300px'
+            })
+
+        };
         render(){
+            const style={
+                width:this.state.width,
+                height:this.state.height,
+
+            };
             return (
                 <div className='row'>
                     <p className='col-6 paragraph1'><strong>Czym są domy pasywne?</strong>
-                        <div className='definition'><strong>Dom pasywny</strong> to standard wznoszenia obiektów budowlanych, który wyróżniają
+                        <span className='definition'><strong>Dom pasywny</strong> to standard wznoszenia obiektów budowlanych, który wyróżniają
                             bardzo dobre parametry izolacyjne przegród zewnętrznych oraz
                             zastosowanie szeregu rozwiązań, mających na celu zminimalizowanie zużycia
                             energii w trakcie eksploatacji.To budynek, w którym zapotrzebowanie na ciepło jest tak niskie,
                             że można zrezygnować z osobnego systemu grzewczego bez utraty komfortu.
                             Dzięki skutecznemu korzystaniu z energii elektrycznej całkowite zapotrzebowanie na energię wynosi poniżej 33 kWh/(m2/rok).
-                        </div>
+                        </span>
                     </p>
+                    <img className='col-5 imgAbout2' src='images/dom-schemat.jpg' title='Przekrój domu energooszczędnego' onMouseLeave={this.handleMouseLeave} onMouseEnter={this.handleMouseEnter} style={style}/>
 
                 </div>
             )
@@ -139,7 +166,7 @@ document.addEventListener('DOMContentLoaded',function(){
         render(){
             return (
                 <div className='row'>
-                    <p className='col-6 paragraph2'><strong>Zasady budowy domów energooszczędnych i pasywnych:</strong><hr></hr>
+                    <p className='col-6 paragraph2'><strong>Zasady budowy domów energooszczędnych i pasywnych:</strong><br></br>
                         Bryła domu powinna być prosta, a ściany i dach – mieć jak najmniej załamań.
                         Największe przeszklenia umieszcza się od strony południowej.Średni współczynnik przenikania ciepła
                         U przegród zewnętrznych nie przekracza 0,2 W/(m2·K). Osiągnięcie takich parametrów jest możliwe dzięki
@@ -164,7 +191,6 @@ document.addEventListener('DOMContentLoaded',function(){
             )
         }
     }
-
     class Galery extends React.Component {
         state={
             src:null
@@ -188,26 +214,24 @@ document.addEventListener('DOMContentLoaded',function(){
                     <img onClick={this.handleDelete} className='fullScreen' src={this.state.src}/>
                 </div>
             }
-
             return (
                 <section className='grid'>
                     <h1 className=' col-12 galleryText'>Zainsipiruj się i stwórz swój model domu</h1>
                     <div className='slider'>
                         {big}
                         <ul>
-                            <li><img onClick= {this.handleClick} src="images/g1.jpg"/></li>
-                            <li><img onClick= {this.handleClick} src="images/g2.jpg"/></li>
-                            <li><img onClick= {this.handleClick} src="images/g3.jpg"/></li>
-                            <li><img onClick= {this.handleClick} src="images/g4.jpg"/></li>
-                            <li><img onClick= {this.handleClick} src="images/dom.png"/></li>
-                            <li><img onClick= {this.handleClick} src="images/g6.jpg"/></li>
+                            <li><img onClick= {this.handleClick} src="images/g1.jpg" title='Houston'/></li>
+                            <li><img onClick= {this.handleClick} src="images/g2.jpg" title='Vancouver'/></li>
+                            <li><img onClick= {this.handleClick} src="images/g3.jpg" title='Canada'/></li>
+                            <li><img onClick= {this.handleClick} src="images/g4.jpg" title='Avalon'/></li>
+                            <li><img onClick= {this.handleClick} src="images/dom.png" title='Belfast'/></li>
+                            <li><img onClick= {this.handleClick} src="images/g6.jpg" title='Monterey'/></li>
                         </ul>
                     </div>
                 </section>
             )
         }
     }
-
     class Design extends React.Component{
         render(){
             return (
@@ -215,7 +239,6 @@ document.addEventListener('DOMContentLoaded',function(){
             )
         }
     }
-
     class CalculatorMain extends React.Component{
         render(){
             return (
@@ -228,6 +251,7 @@ document.addEventListener('DOMContentLoaded',function(){
                     <li><CalculatorEnergy/></li>
                     <li><CalculatorPrice/></li>
                     <li><CalculatorWarm/></li>
+                    <li><Like/></li>
                 </ul>
             )
         }
@@ -268,7 +292,6 @@ document.addEventListener('DOMContentLoaded',function(){
                 displayCalc:this.state.displayCalc==='block'?'none':'block'
             })
         };
-
         render(){
             let result;
             result=(1/0.3)-(0.04+0.13+parseInt(this.state.input1)+parseInt(this.state.input2)+parseInt(this.state.input3)+parseInt(this.state.input4));
@@ -282,12 +305,10 @@ document.addEventListener('DOMContentLoaded',function(){
             }else{
                 span=''
             }
-
-
             return(
                 <div>
-                    <h3 style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator grubości warstwy izolacyjnej ścian zewnętrznych</h3>
-                    <div style={{display:this.state.displayCalc}}>
+                    <h3 className='calculator' style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator grubości warstwy izolacyjnej ścian zewnętrznych</h3>
+                    <div style={{display:this.state.displayCalc}} className='container'>
                     <label>Podaj opór cieplny tynku zewnętrznego:
                         <input type='text' value={this.state.input1} onChange={this.handleInput1}/>
                     </label>
@@ -306,7 +327,6 @@ document.addEventListener('DOMContentLoaded',function(){
             )
         }
     }
-
     class CalculatorIsolationRoof extends React.Component {
         state = {
             input1: '',
@@ -342,7 +362,6 @@ document.addEventListener('DOMContentLoaded',function(){
                 displayCalc: this.state.displayCalc === 'block' ? 'none' : 'block'
             })
         };
-
         render() {
             let result;
             result = (1 / 0.25) - (0.04 + 0.13 + parseInt(this.state.input1) + parseInt(this.state.input2) + parseInt(this.state.input3) + parseInt(this.state.input4));
@@ -358,9 +377,9 @@ document.addEventListener('DOMContentLoaded',function(){
             }
             return (
                 <div>
-                    <h3 style={{display: this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator grubości
+                    <h3 className='calculator' style={{display: this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator grubości
                         warstwy izolacyjnej dachu</h3>
-                    <div style={{display: this.state.displayCalc}}>
+                    <div style={{display: this.state.displayCalc}} className='container'>
                         <label>Podaj opór cieplny dachówki:
                             <input type='text' value={this.state.input1} onChange={this.handleInput1}/>
                         </label>
@@ -379,7 +398,6 @@ document.addEventListener('DOMContentLoaded',function(){
             )
         }
     }
-
     class CalculatorIsolationFloor extends React.Component {
         state = {
             input1: '',
@@ -415,7 +433,6 @@ document.addEventListener('DOMContentLoaded',function(){
                 displayCalc: this.state.displayCalc === 'block' ? 'none' : 'block'
             })
         };
-
         render() {
             let result;
             result = (1 / 0.45) - (0.13 + parseInt(2*this.state.input1) + parseInt(this.state.input2) + parseInt(2*this.state.input3));
@@ -431,9 +448,9 @@ document.addEventListener('DOMContentLoaded',function(){
             }
             return (
                 <div>
-                    <h3 style={{display: this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator grubości
+                    <h3 className='calculator' style={{display: this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator grubości
                         warstwy izolacyjnej podłogi</h3>
-                    <div style={{display: this.state.displayCalc}}>
+                    <div style={{display: this.state.displayCalc}} className='container'>
                         <label>Podaj opór cieplny betonu zwykłwego:
                             <input type='text' value={this.state.input1} onChange={this.handleInput1}/>
                         </label>
@@ -452,7 +469,6 @@ document.addEventListener('DOMContentLoaded',function(){
             )
         }
     }
-
     class CalculatorBlock extends React.Component{
         state={
             input1:'',
@@ -493,9 +509,9 @@ document.addEventListener('DOMContentLoaded',function(){
             }
             return (
                 <div>
-                    <h3 style={{display: this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator ilości
+                    <h3 className='calculator' style={{display: this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator ilości
                     pustaków potrzebnych do wybudowania ścian</h3>
-                    <div style={{display: this.state.displayCalc}}>
+                    <div style={{display: this.state.displayCalc}} className='container'>
                         <label>Podaj powierzchnię ścian w domu:
                             <input type='text' value={this.state.input1} onChange={this.handleClick1}/>
                         </label>
@@ -514,7 +530,6 @@ document.addEventListener('DOMContentLoaded',function(){
             )
         }
     }
-
     class CalculatorPipe extends React.Component{
         state={
             input5:'',
@@ -544,8 +559,8 @@ document.addEventListener('DOMContentLoaded',function(){
             }
             return (
                 <div>
-                    <h3 style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator zużycia rur na ogrzewanie podłogowe</h3>
-                    <div style={{display:this.state.displayCalc}}>
+                    <h3 className='calculator' style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator zużycia rur na ogrzewanie podłogowe</h3>
+                    <div style={{display:this.state.displayCalc}} className='container'>
                         <label>Podaj powierzchnię domu:
                             <input type='text' value={this.state.input5} onChange={this.handleInput5}/>
                         </label>
@@ -589,8 +604,8 @@ document.addEventListener('DOMContentLoaded',function(){
             }
             return(
                 <div>
-                    <h3 style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator obliczający zapotrzebowanie na energię do przygotowania CWU(ciepłej wody użytkowej) </h3>
-                    <div style={{display:this.state.displayCalc}}>
+                    <h3 className='calculator' style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator obliczający zapotrzebowanie na energię do przygotowania CWU(ciepłej wody użytkowej) </h3>
+                    <div style={{display:this.state.displayCalc}} className='container'>
                         <label>Podaj liczbę osób mieszkającą w domu:
                             <input type='text' value={this.state.input6} onChange={this.handleInput6}/>
                         </label>
@@ -642,8 +657,8 @@ document.addEventListener('DOMContentLoaded',function(){
             }
             return (
                 <div>
-                    <h3 style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator obliczający różnicę cenową zastosowania pieca węglowego a gazowego</h3>
-                    <div style={{display:this.state.displayCalc}}>
+                    <h3 className='calculator' style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator obliczający różnicę cenową zastosowania pieca węglowego a gazowego</h3>
+                    <div style={{display:this.state.displayCalc}} className='container'>
                         <label>Podaj koszt zużycia węgla na sezon grzewczy:
                             <input type='text' value={this.state.input7} onChange={this.handleInput7}/>
                         </label>
@@ -692,11 +707,10 @@ document.addEventListener('DOMContentLoaded',function(){
             }else{
                 span=''
             }
-
             return (
                 <div>
-                    <h3 style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator określający obliczeniowe zapotrzebowanie ciepła</h3>
-                    <div style={{display:this.state.displayCalc}}>
+                    <h3 className='calculator' style={{display:this.state.displayHead}} onClick={this.handleClickHeader}>Kalkulator określający obliczeniowe zapotrzebowanie ciepła</h3>
+                    <div style={{display:this.state.displayCalc}} className='container'>
                         <label>Wybierz rodzaj budownictwa mieszkaniowego domu jednorodzinnego:
                             <select  value={this.state.select} onChange={this.handleSelect}>
                                 <option value={this.state.old}>stare</option>
@@ -715,8 +729,44 @@ document.addEventListener('DOMContentLoaded',function(){
             )
         }
     }
+    class Like extends React.Component {
+        state = {
+            counter: 0,
+        };
 
+        handleBtnClick = () => {
+            this.setState({
+                counter: this.state.counter +1,
+            });
+        };
+        render() {
 
+            return (
+                <div>
+                    <span className='likeText'>Jeśli uważasz, że przedstawione kalkulatory są przydatne to zostaw nam like!!</span>
+                    <h1 className='counter'><LikeToClick onClick={this.handleBtnClick}/>{this.state.counter}</h1>
+                </div>
+            )
+        }
+    }
+
+    class LikeToClick extends React.Component {
+        handleClick = () => {
+            if(typeof this.props.onClick === 'function') {
+                this.props.onClick();
+            }
+        };
+
+        render() {
+            const style={
+                width:'40px',
+                height:'40px'
+            };
+            return (
+                <img src='images/blacklike.png' style={style} onClick={this.handleClick}/>
+            )
+        }
+    }
     class Contact extends React.Component{
         render(){
             return (
@@ -729,7 +779,8 @@ document.addEventListener('DOMContentLoaded',function(){
                         </p>
                         <ContactForm/>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4311.543695995482!2d19.997342960611153!3d50.017742215815794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47164364bbe52745%3A0x95b6a3ed51c0330f!2sKsi%C4%99dza+Piotra+%C5%9Aciegiennego+57%2C+33-332+Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1516794819425" width="600" height="450" frameBorder="0" style={{border:"0"}} allowFullScreen></iframe>
-                        <Link/>
+                        <Social/>
+                        <Links/>
                     </div>
                 </section>
             )
@@ -780,8 +831,13 @@ document.addEventListener('DOMContentLoaded',function(){
                     },
                     method: "POST",
                     body: JSON.stringify(obj)
-                })
-
+                });
+            this.setState({
+                input1:'',
+                input2:'',
+                text:'',
+                select:''
+            })
         };
         render(){
             const style={
@@ -796,7 +852,6 @@ document.addEventListener('DOMContentLoaded',function(){
                 color:'grey',
                 marginTop:'20px'
             };
-
             return (
                 <div>
                     <form className='form'>
@@ -824,18 +879,38 @@ document.addEventListener('DOMContentLoaded',function(){
             )
         }
     }
-    class Link extends React.Component{
+    class Links extends React.Component{
         render(){
 
             return (
                 <div>
-                    <p>Przydatne linki do materiałów budowlanych:</p>
+                    <p className='materials'>Przydatne linki do materiałów budowlanych:</p>
                     <ul>
                         <li><a href='https://www.solbet.pl/'>Solbet</a></li>
                         <li><a href='http://www.leier.pl/3100_scienne_ceramiczne.php'>Leier</a></li>
                         <li><a href='https://www.ytong-silka.pl/'>Ytong</a></li>
                         <li><a href='https://www.isover.pl/'>Isover</a></li>
+                        <li><a href='https://www.castorama.pl/'>Castorama</a></li>
                     </ul>
+                </div>
+            )
+        }
+    }class Social extends React.Component{
+        render(){
+            const style={
+                display:'inline-block',
+                width:'30px',
+                height:'30px',
+                padding:'5px'
+            };
+            return (
+                <div>
+                    <p>Odwiedź nas również na:</p>
+                    <a href='https://www.facebook.com/'><img src='images/fb.png' style={style} title='Facebook' className='socialImg'/></a>
+                    <a href='https://twitter.com/?lang=pl'><img src='images/twitter.png' style={style} title='Twitter' className='socialImg'/></a>
+                    <a href='https://www.linkedin.com'><img src='images/linkedin.png' style={style} title='Linkedin' className='socialImg'/></a>
+                    <a href='https://pl.pinterest.com/'><img src='images/pinteres.png' style={style} title='Pinterest' className='socialImg'/></a>
+                    <a href='https://www.instagram.com/?hl=pl'><img src='images/instagram.png' style={style} title='Instagram' className='socialImg'/></a>
                 </div>
             )
         }
@@ -858,6 +933,19 @@ document.addEventListener('DOMContentLoaded',function(){
             </div>;
         }
     }
+    class NotFound extends React.Component{
+        render(){
+            const style={
+                color:'grey',
+            };
+            return(
+                <div>
+                    <h1>Przykro nam, ale strona której szukasz nie instnieje.</h1>
+                    <p>Wróć do <Link to="/" style={style}> strony głównej</Link></p>
+                </div>
+            )
+        }
+    }
     class App extends React.Component {
         render() {
             return (
@@ -869,15 +957,13 @@ document.addEventListener('DOMContentLoaded',function(){
                         <Route path='/design' component={Design} />
                         <Route path='/contact' component={Contact} />
                     </Route>
+                    <Route path='*' component={NotFound} />
                 </Router>
             )
         }
     }
-
     ReactDOM.render(
         <App/>,
         document.getElementById('app')
     )
-
-
 });
